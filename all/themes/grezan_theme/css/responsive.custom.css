@@ -1,0 +1,97 @@
+/*
+ * responsive.custom.css is for custom media queries that are not set via the
+ * theme settings, such as cascading media queries.
+ *
+ * By default all the other responsive stylesheets used in Adaptivetheme use a
+ * "stacking method", however cascading media queries use a waterfall method so
+ * you can leverage the cascade and inheritance for all browsers that support
+ * media queries, regardless of screen size.
+ *
+ * @SEE http://zomigi.com/blog/essential-considerations-for-crafting-quality-media-queries/#mq-overlap-stack
+ *
+ * NOTE: this file loads by default, to disable got to your theme settings and
+ * look under the "CSS" settings tab.
+ */
+
+/*
+ * Medium range size: correct too small columns
+ */
+@media only screen and (max-width: 640px) {
+    /* show hosts users and footer blocks one after the other */
+    .quicktabs-tabpage .view-user-list .views-row,
+    .page-founders #main-content .view-user-list .views-row,
+    #footer .block-region-footer {
+        display: inline-block;
+        width: 95%;
+        float:none;
+        border: none;
+    }
+    #footer .block-region-footer {
+        border-top: thin solid rgba(255,153,51,1.0);
+        padding: 1em;
+    }
+
+}
+
+@media only screen and (min-width: 481px) and (max-width: 640px) {
+    /* full view mode: equal width for two columns */
+    .view-mode-full .two-66-33 > div.region-two-66-33-first,
+    .view-mode-full .two-66-33 > div.region-two-66-33-second,
+    .view-mode-full .two-33-66 > div.region-two-33-66-first,
+    .view-mode-full .two-33-66 > div.region-two-33-66-second {width:50%}
+
+    /* front page event and news columns */
+    .view-mode-teaser_front .two-33-66 > div.region-two-33-66-first,
+    .view-mode-teaser_front .two-33-66 > div.region-two-33-66-second {float: none; width:100%}
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    /* teaser mode: adapt three-column layouts to 50-50-100 wide */
+    .three-3x33 > div.region-three-33-first,
+    .three-3x33 > div.region-three-33-second,
+    .three-25-50-25 > div.region-three-25-50-25-first,
+    .three-25-50-25 > div.region-three-25-50-25-second {width:50%}
+}
+
+/*
+ *  hide booking button in header
+ */
+@media only screen and (max-width: 820px) {
+    .region-header {
+        display: none;
+    }
+
+}
+
+/*
+ *  Small range size
+ */
+@media only screen and (max-width: 560px) {
+    /* Site title region */
+    hgroup#name-and-slogan {
+        vertical-align: -44px;
+    }
+    #name-and-slogan #site-name,
+    #name-and-slogan #site-slogan {
+        font-size: 1.4em;
+
+    }
+
+    /* Menu items */
+    #superfish-1 li a,
+    #superfish-1 li a:link,
+    #superfish-1 li a:visited {
+        padding: 0 1em;
+        font-size: 1.1em;
+    }
+
+    /* checkout progress */
+    .item-list ol.commerce-checkout-progress > li {
+        font-size: 0.9em;
+        padding: 0.625em 0.8em;
+    }
+    /* order total table with components */
+    .commerce-order-handler-area-order-total .commerce-price-formatted-components {
+        width: 50%;
+    }
+}

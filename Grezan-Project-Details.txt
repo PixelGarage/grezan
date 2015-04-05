@@ -1,0 +1,13 @@
+Specific Project Details:
+
+Changes in Modules
+==================
+Rooms/js/rooms_date_popup.js changed -> Calendar (nur Samstag buchbar)
+
+
+
+Modules
+=======
+Adaptive Theme 3.1 nicht updaten
+
+Sonst alle Module ok.

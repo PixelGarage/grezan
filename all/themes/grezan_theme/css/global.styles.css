@@ -1,0 +1,2162 @@
+/*
+ * @file
+ * global.styles
+ *
+ * Styles you add here will load for all device sizes, they are "global", as
+ * opposed to "responsive" styles, which only load for a given breakpoint (media
+ * query) that you set in theme settings. See the README for more details.
+ *
+ *
+ * How to use this file:
+ * --------------------
+ *
+ * There are many empty selectors and some basic styles to act as a guide.
+ * Nothing is set in stone and you can change anything - even delete all of it
+ * and start with your own clean slate.
+ *
+ * See global.base also which includes normalize.css and some additional
+ * helper classes and base styles.
+ *
+ *
+ *
+ *  Style precedence in CSS (Specificity, Inheritance, Cascade)
+ *  -----------------------------------------------------------
+ *
+ *  Specificity:    a) Inline Style
+ *  (a,b,c,d)       b) Id
+ *                  c) Class, Pseudo-class, attribute
+ *                  d) Element, pseuo-element
+ *
+ *                          Example: div#sidebar p.bio -> 2 elements, 1 class, 1 id –> (0,1,1,2)
+ *
+ *
+ *  Inheritance:    Elements inherit styles from their parent container.
+                    "inherit" let you inherit margin, padding etc. from parent container.
+ *
+ *
+ *  Cascade:        - Site-Author (these files) OVER Site-User(Style settings in browser) OVER Browser Defaults
+ *                  - !importance has more weight than normal declarations
+ *                  - Equal specificity: last wins
+ *
+ *                  TIP: Normalizing (see above) takes browser defaults and cross browser issues out of equation!!!
+ */
+
+/* =============================================================================
+ *   Colors used for web site
+ * =============================================================================
+    text-black:         #222222
+    text-white:         #eeeeee
+    text-column:        #333300
+    text-list:          #660000
+    background:         #d14c0c, rgba(209,76,12,1.0)
+    main container:     #ffcc66, rgba(255,204,102,0.45)     45% transparency
+    section_background: #999933, rgba(153,153,51,1.0)
+    column-background:  #fffff0, rgba(255,255,240,0.5)      40% trasparency
+    footer-background:  #4b8dab, rgba(75,141,171,1.0)
+    nav-background:     #2a86c0, rgba(51,153,204,0.8)
+    nav-background(akt):#4b8dab, rgba(75,141,171,1.0)
+    nav-border:         #ff9933, rgba(255,153,51,1.0)
+    nav-active-backgrd: #999933, rgba(153,153,51,1.0)
+
+    tab-backgr.(aktiv): #2a86c0, rgba(51,153,204,0.8)
+    tab-backgr.(inakt.):#2a86c0, rgba(51,153,204,0.6)
+
+    table-backgr.      :#4b8dab, rgba(75,141,171,1.0)
+
+    accordion background:  #ffcc66, rgba(255,204,102,0.7)     70% transparency
+    node background:       #ffcc66, rgba(255,204,102,0.7)     70% transparency
+
+  =============================================================================*/
+
+
+/* =============================================================================
+ *   Fonts
+ * ========================================================================== */
+
+/* =============================================================================
+ *   General reset
+ * ========================================================================== */
+/*
+ * AT regions (top and nested regions)
+ */
+.at-panel > .region > .region-inner,
+.at-panel .at-panel > .region > .region-inner {
+    margin: 0;
+}
+
+/*
+ * Blocks
+ */
+.block,
+.block > .block-inner,
+.block .block-title {
+    margin: 0;
+}
+
+/* =============================================================================
+ *   Base
+ * ========================================================================== */
+
+/*
+ * To preserve theme settings never apply font properties to the HTML element.
+ * This is critically important if you are using the Responsive JavaScript
+ * feature as this relies on being able to set a pseudo font family on the HTML
+ * element. If you need to set default font properties of any kind use the BODY
+ * element as these can be overridden using font theme settings.
+ */
+
+html {
+    background: #d14c0c url("images/hintergrund_body_30.jpg") no-repeat scroll center top;
+}
+
+
+body {
+  font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+  font-size: 87.5%; /* 14px */
+}
+
+
+/* =============================================================================
+ *   HTML Elements
+ * ========================================================================== */
+
+pre,
+code,
+tt,
+samp,
+kbd,
+var {
+  font-family: Consolas, Monaco, 'Courier New', Courier, monospace, sans-serif;
+}
+
+/* =============================================================================
+ *   Wrappers
+ * ========================================================================== */
+
+#header {
+    margin: 0.625em 0 0;
+}
+
+/*
+ * Wraps the main-content-header, the content region and feed-icons. Use this wrapper to style the entire main content column
+ */
+#main-content {
+    margin: 2em 0.25em;
+}
+#main-content #main-content-header {
+    /* overflow: auto;   Prevents margin collapsing */
+}
+
+#main-content #main-content-header h1 {
+    color: #222222;
+    margin: 0 0.25em;
+    font-weight: normal;
+    border-bottom: 1px solid #660000;
+}
+
+
+/*
+ * Menu, columns, Footer wrapper
+ */
+#columns,
+#footer {
+    background-color: rgba(255,204,102,0.45);
+    margin: 0;
+}
+
+#footer .region-footer {
+    background-color: rgba(75,141,171,1.0);
+    color: #eeeeee;
+    padding: 0.625em;
+    margin: 0;
+}
+
+/* Blocks in footer */
+#footer .block-region-footer {
+    display: inline-block;
+    float: left;
+    width: 40%;
+    padding: 0 4.9%;
+    border-left: thin solid rgba(255,153,51,1.0);
+}
+
+#footer .block-region-footer:first-child {
+    border: none;
+}
+
+#footer .views-row {
+    margin: 0;
+    color: #eeeeee;
+}
+
+#footer .block-title {
+    font-weight: normal;
+    font-size: 1.6em;
+    padding-left: 0.5em;
+}
+
+#footer .field-label {
+    color: #EEEEEE;
+}
+
+
+
+/* =============================================================================
+ *   AT Regions
+ * ========================================================================== */
+
+/*
+ *   language switcher, user menu, superior menu, footer
+ */
+
+#block-menu-menu-superior-menu,
+#block-menu-menu-subfooter,
+#block-locale-language,
+#block-system-user-menu {
+    display:inline;
+    float: right;
+    margin: 0;
+}
+
+#block-system-user-menu .block-inner {
+    margin-right: 0;
+}
+#block-menu-menu-subfooter {
+    font-size: 75%;
+}
+
+.region-leaderboard,
+.region-tertiary-content {
+    display:inline;
+    float: right;
+    margin: 0;
+    width: 100%;
+}
+
+.region-leaderboard ul,
+.region-tertiary-content ul {
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+.region-leaderboard ul li,
+.region-tertiary-content ul li {
+    display:inline;
+    padding: 0 0.625em;
+    border-left: 1px solid #222222;
+}
+
+.region-leaderboard ul li a,
+.region-leaderboard ul li a:visited,
+.region-tertiary-content ul li a,
+.region-tertiary-content ul li a:visited{
+    color: #222222;
+}
+
+.region-leaderboard ul li a:hover,
+.region-leaderboard ul li a:focus,
+.region-tertiary-content ul li a:hover,
+.region-tertiary-content ul li a:focus {
+    color: #ffffff;
+}
+
+
+/* =============================================================================
+ *   Branding
+ * ========================================================================== */
+
+/*
+ * Wraps all the branding elements, logo, name and slogan
+ */
+#branding {
+    margin: 0.625em 0;
+    display: inline-block;
+    white-space: nowrap;
+}
+
+/*
+ * Logo
+ */
+#logo {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    max-width: 115px;
+}
+
+#logo img {
+    vertical-align: middle;
+}
+
+/*
+ * Wrapper for the site name and slogan (hgroup)
+ */
+#name-and-slogan {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: -53px;
+}
+
+/*
+ * Site name (h1)
+ */
+#name-and-slogan #site-name {
+    position: relative;
+    left: -65px;
+    margin: 0;
+    color: #eeeeee;
+    font-size: 1.875em;
+    line-height: 1;
+}
+
+#name-and-slogan #site-name a,
+#name-and-slogan #site-name a:link,
+#name-and-slogan #site-name a:visited {
+    text-decoration: none;
+    color: #eeeeee;
+}
+
+#name-and-slogan #site-name a:hover,
+#name-and-slogan #site-name a:focus {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/*
+ * Site slogan (h2)
+ */
+#name-and-slogan #site-slogan {
+    position: relative;
+    left: -12px;
+    margin: 0;
+    font-size: 1.875em;
+    font-weight: bold;
+    line-height: 1.1;
+    letter-spacing: 0.125em;
+    color: rgba(35,96,113,0.7);
+}
+
+/*
+ *  Header booking icon
+ */
+.region-header {
+    display: inline-block;
+    float: right;
+    margin: 0;
+    max-width: 25%;
+}
+
+.region-header .header-booking-block p {
+    margin: 0.2em 0 0 0;
+}
+
+.region-header .header-booking-block img {
+    margin: 0;
+    height: auto !important;
+}
+
+
+/* =============================================================================
+ *   Superfish menu
+ * ========================================================================== */
+
+#block-superfish-1 {
+    margin: 0;
+}
+
+#superfish-1 {
+    float: left;
+    width: 100%;
+    margin: 0 -9999em;  /* Extend menu to fill whole width */
+    padding: 0 9999em;
+    background-color: rgba(51,153,204,0.8);
+    color: #222222;
+    white-space: nowrap;
+}
+
+#superfish-1 ul {
+    margin: 3px 0 0 -6px;
+    padding-left: 0;
+}
+
+#superfish-1 li a,
+#superfish-1 li a:link,
+#superfish-1 li a:visited {
+    border-left: 0;
+    border-top: 0;
+    padding: 0 1.25em;
+    text-decoration: none;
+    height: 38px;
+    line-height: 38px;
+    font-size: 1.25em;
+    color: #222222;
+}
+
+#superfish-1 a > .sf-sub-indicator {
+    display: none;  /* no drop-down arrow */
+}
+
+
+#superfish-1 > li {
+    background-color: rgba(51,153,204,0.1);
+    width: 25%;
+    height: 38px;
+    margin: 0;
+}
+
+#superfish-1 > li a.sf-depth-1 {
+    border-right: 1px solid #ff9933;
+    text-align: center;
+}
+
+#superfish-1 > li:first-child a.sf-depth-1 {
+    border-left: 1px solid #ff9933;
+}
+
+#superfish-1 li li {
+    background-color: rgba(75,141,171,1.0);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+#superfish-1 li li li {
+    background-color: rgba(75,141,171,1.0);
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+#superfish-1 li:hover,
+#superfish-1 li.sfHover,
+#superfish-1 a:focus,
+#superfish-1 a:hover,
+#superfish-1 a:active {
+    background-color: rgba(75,141,171,1.0);
+    outline: 0;
+    color: #eeeeee;
+}
+
+
+/* =============================================================================
+ *   Breadcrumbs
+ * ========================================================================== */
+
+#breadcrumb {
+    display: none;
+    margin: 0;
+    background-color: rgba(255,204,102,0.45);
+    padding: 1.25em 0 0;
+}
+
+#breadcrumb .breadcrumb-wrapper {
+}
+
+/* If the label is set to show in theme settings the label class is added */
+#breadcrumb .breadcrumb-label {
+  font-size: 1em;
+  display: inline;
+  padding-right: 0.625em;
+}
+
+#breadcrumb .breadcrumb-label:after {
+  content: ":";
+}
+
+#breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+
+#breadcrumb .with-breadcrumb-label ol {
+  display: inline;
+}
+
+#breadcrumb li {
+  list-style: none;
+  display: inline;
+}
+
+#breadcrumb li.crumb-first {}
+
+#breadcrumb li.crumb-last {}
+
+#breadcrumb a {}
+
+#breadcrumb a:link,
+#breadcrumb a:visited {}
+
+#breadcrumb a:active,
+#breadcrumb a.active {}
+
+#breadcrumb a:hover,
+#breadcrumb a:focus {}
+
+
+
+/* =============================================================================
+ *   Pagers
+ * ========================================================================== */
+
+ul.pager {
+  clear: both;
+  margin: 0;
+  text-align: center;
+}
+
+.item-list ul.pager li {
+  margin: 0;
+}
+
+ul.pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: .5em;
+}
+
+ul.pager li.pager-current {
+  font-weight: 700;
+}
+
+.block ul.pager li {
+  margin: 0;
+}
+
+/*
+ * Theme the various states of pager links
+ */
+ul.pager li {}
+
+ul.pager li a {}
+
+ul.pager li a:link,
+ul.pager li a:visited {}
+
+ul.pager li a:active,
+ul.pager li a.active {}
+
+ul.pager li a:hover,
+ul.pager li a:focus {}
+
+ul.pager li.pager-item {}
+ul.pager li.first {}
+ul.pager li.last {}
+ul.pager li.pager-current {}
+ul.pager li.pager-first {}
+ul.pager li.pager-previous {}
+ul.pager li.pager-next {}
+ul.pager li.pager-last {}
+
+
+
+/* =============================================================================
+ *   Links
+ * ========================================================================== */
+
+a,
+a:link,
+a:visited {
+    text-decoration: none;
+    color: #444444;
+}
+
+a:active,
+a.active {
+    color: #444444;
+}
+
+a:hover,
+a:focus {
+    text-decoration: none;
+    color: #ff9933;
+}
+
+
+/* =============================================================================
+ *   Skip Navigation
+ * ========================================================================== */
+
+#skip-link {
+    left: 50%;
+    margin-left: -6.5em;
+    margin-top: 0;
+    padding: 0 0.5em;
+    position: absolute;
+    width: 12em;
+    z-index: 50;
+}
+
+#skip-link a {
+    background: #444;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: block;
+    line-height: 2;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+#skip-link a:link,
+#skip-link a:visited {
+    background: #444;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    display: block;
+    line-height: 2;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+}
+
+#skip-link a:hover,
+#skip-link a:focus,
+#skip-link a:active {
+    outline: 0;
+}
+
+
+/* =============================================================================
+ *   Misc Global Styles
+ * ========================================================================== */
+
+/*
+ * Feed icons
+ */
+.feed-icon {}
+
+/*
+ * Aggregator feed source
+ */
+#aggregator .feed-source .feed-icon {
+    display: inline;
+    float: none;
+    margin-right: 0.625em;
+}
+
+.feed-details dt,
+.feed-details dd {
+    display: inline;
+    margin: 0;
+}
+
+/*
+ * Generic styles for the more link
+ */
+.more-link {}
+
+/*
+ * Generic styles for links. See the ul.links declaration in node and comment stylesheets
+ */
+ul.links {
+    margin: 0;
+    padding: 0;
+}
+
+ul.links.inline {
+    display: block;
+}
+
+ul.links li {
+    display: inline;
+    list-style: none;
+    padding: 0 0.625em 0 0;
+}
+
+/*
+ * Search results are an ordered list so reset the margin
+ */
+.search-results {
+    margin: 0;
+}
+
+/*
+ *  Text areas resizing handlers
+ */
+
+.resizable-textarea .grippie {
+    display: none;
+}
+
+
+/* =============================================================================
+ *   Action links
+ * ========================================================================== */
+
+ul.action-links {
+  margin: 1.25em 0 0;
+  list-style: none;
+}
+
+ul.action-links li {}
+
+
+/* =============================================================================
+ *   Forms
+ * ========================================================================== */
+
+#content form {
+    overflow: hidden;  /* Prevents floating form buttons to be outside of form */
+    margin: 0 0.625em;
+}
+
+/*
+ * Wrapper for a form element (or group of form elements) and its label
+ */
+.form-item {}
+
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+    border: 1px solid #c00;
+}
+
+.form-item label {
+    color: #222222;
+}
+
+.form-item input,
+.form-item textarea {
+    outline: none;
+    border: 1px solid #2a86c0;
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari and Chrome */
+    border-radius: 3px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+}
+
+.form-item input:focus,
+.form-item textarea:focus {
+    box-shadow: 0 0 6px #2a86c0;
+}
+
+input[type="submit"],
+input#edit-cancel,
+input#edit-back {
+    display: block;
+    float: right;
+    padding: 0.3125em 0.625em;
+    margin: 0.625em;
+    background-color: rgba(51,153,204,0.8);
+    color: #eeeeee;
+    border: 1px solid rgba(51,153,204,1.0);
+    -moz-border-radius: 3px; /* Firefox */
+    -webkit-border-radius: 3px; /* Safari and Chrome */
+    border-radius: 3px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+
+}
+input[type="submit"]:hover,
+input#edit-cancel:hover,
+input#edit-back:hover {
+    color: #ff9933;
+    text-decoration: none;
+}
+
+/*
+ *  Form fieldsets
+ */
+form fieldset {
+    position:relative;
+    margin: 1em 0.125em;
+    padding-top: 3em;
+    background-color: rgba(255,255,240,0.5);
+    border: none;
+}
+form fieldset legend {
+    /* position legend inside fieldset */
+    position:absolute;
+    top:10px;
+    left:10px;
+    color: #222;
+    font-size: 1.2em;
+    font-weight: bolder;
+}​
+form fieldset span.button-operator {
+    display: none;
+}
+
+/*
+ * Buttons used by contrib modules like Media
+ */
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+}
+
+/*
+ * Password confirmation
+ */
+.password-parent,
+.confirm-parent {
+    margin: 0;
+}
+
+
+/* =============================================================================
+ *   Comment Styling - Comments, comment wrapper, comment form
+ * ========================================================================== */
+
+/*
+ * Wrapper for the list of comments and its titles
+ */
+#comments {
+    overflow: hidden;
+    margin: 0;
+}
+
+#comments h2 {
+    border-bottom: 1px solid #660000;
+}
+
+#comments h2.comment-form,
+#comments h2.comment-title {
+    margin: 0;
+    padding-left: 0.625em;
+    font-weight: normal;
+    color: #222222;
+
+}
+
+/*
+ * Wrapper for a single comment
+ */
+.comment,
+#comments .at-panel {
+    margin: 1.25em 0;
+    padding: 0.625em 0;
+    border-top: 1px solid #660000;
+}
+
+.comment:first-of-type,
+#comments > .at-panel:first-of-type {
+    border-top: none;
+}
+
+.comment.odd {}
+
+.comment.even {}
+
+
+/*
+ * Comment title
+ */
+.comment-title {
+  margin: 0;
+}
+
+/*
+ * Preview of the comment before submitting new or updated comment
+ */
+#comments .comment-form,
+#comments .comment-preview {
+    overflow: hidden;  /* Prevents floating buttons to be outside form */
+    padding: 0.625em;
+}
+
+/*
+ * "New" marker for comments that are new for the current user
+ */
+.new {
+  color: #c00;
+}
+
+/*
+ * Nested comments are indented
+ */
+.indented {
+  margin-left: 2.5em;
+}
+
+
+/* =============================================================================
+ *   Messages
+ * ========================================================================== */
+
+#messages {
+    background-color: rgba(255,204,102,0.45);
+    padding: 1px 0; /* Prevents margin collapsing */
+}
+
+/* Left and right margin are set by the global gutter width */
+div.messages {
+    margin-bottom: 0.625em;
+    margin-top: 0.625em;
+}
+
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.status {}
+
+div.warning {}
+
+tr.warning {}
+
+div.error,
+tr.error {}
+
+.error {}
+
+.warning {}
+
+/*
+ * Unpublished nodes
+ */
+.node-unpublished,
+.comment-unpublished {}
+
+.node-unpublished,
+.comment-unpublished {}
+
+.node-unpublished p.unpublished,
+.comment-unpublished p.unpublished {
+  color: pink;
+  color: rgba(239, 170, 170, 0.4);
+  font-family: Impact,"Arial Narrow",Helvetica,sans-serif;
+  font-size: 4.5em;
+  font-weight: bold;
+  height: 0;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
+  text-align: center;
+  text-transform: uppercase;
+  word-wrap: break-word;
+}
+
+/*
+ * Otherwise these elements will appear below the "Unpublished" text
+ */
+.lt-ie8 {}
+
+.lt-ie8 .node-unpublished > *,
+.lt-ie8 .comment-unpublished > * {
+  position: relative;
+}
+
+
+/* =============================================================================
+ *    Maintenance pages
+ * ========================================================================== */
+
+.maintenance-page {}
+.maintenance-page .container {
+  padding: 2.5em 0;
+}
+
+.maintenance-page #site-name,
+.maintenance-page #page-title {
+  margin: 0;
+}
+
+.db-offline {}
+
+.db-offline .container {
+  margin: 0 auto;
+  padding: 2.5em 0;
+  width: 100%;
+  max-width: 960px;
+}
+
+.db-offline div.messages {
+  margin: 2.5em 0 0;
+}
+
+.db-offline #content {
+  padding: 2.5em 0;
+}
+
+
+/* =============================================================================
+ *   Tables
+ * ========================================================================== */
+
+table {
+    margin: 0.625em 0;
+    padding: 0;
+    width: 100%;
+}
+
+table.sticky-header {
+    z-index: 10;
+}
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+    border-color: #ff9933;
+}
+
+table,
+td,
+th {
+    vertical-align: middle;
+}
+
+caption,
+th,
+td {
+    text-align: left;
+}
+
+td,
+th {
+    margin: 0;
+    padding: 0.25em 0.5em;
+    border-bottom: 0;
+}
+
+thead tr {
+    font-weight: 700;
+    background-color: rgba(51,153,204,0.8);
+    white-space: nowrap;
+}
+
+tbody tr {
+    border-top: 1px solid #ff9933;
+}
+
+tbody tr.even,
+tbody tr.odd {
+    background-color: rgba(255,255,240,0.5);
+    border-bottom: 0;
+}
+
+tr.info,
+tbody tr.even,
+tbody tr:nth-child(2n+2) {
+    background-color: rgba(51,153,204,0.3);
+}
+
+tbody td.active {
+    background-color: rgba(255,255,240,0.6);
+}
+
+table.checkout-review tr {
+    border: none;
+}
+
+/*
+ * Forum tables
+ * Core sets white-space to nowrap, which makes no sense
+ */
+#forum td {}
+
+#forum td .created,
+#forum td .posts,
+#forum td .topics,
+#forum td .last-reply,
+#forum td .replies,
+#forum td .pager {
+    white-space: normal;
+}
+
+
+/* =============================================================================
+ *
+ *
+ *      Common Blocks starts here...
+ *
+ *
+ * ========================================================================== */
+/*
+ *  Availability block / page
+ */
+#edit-rooms-start-date label,
+#edit-rooms-start-date .description,
+#edit-rooms-end-date label,
+#edit-rooms-end-date .description {
+    display: none;
+}
+#rooms-booking-availability-search-form-block .form-item-rooms,
+#rooms-booking-availability-search-form-block .rooms-group,
+#rooms-booking-availability-search-form-page  .form-item-rooms,
+#rooms-booking-availability-search-form-page .rooms-group {
+    display: none;
+}
+#edit-rooms-start-date,
+#edit-rooms-end-date {
+    padding: 0;
+    margin-top: 0.3125em;
+    margin-bottom: 0.625em;
+}
+
+#rooms-booking-availability-search-form-block #edit-actions {
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+/* =============================================================================
+ *
+ *
+ *      jQuery UI (1.10 up) / other widgets starts here...
+ *
+ *
+ * ========================================================================== */
+
+/* ==================================================================================
+ *   Accordion UI styling
+ * ================================================================================== */
+/* Custom icons (see also /sites/all/themes/grezan_theme/js/grezan_behaviors.js) */
+.ui-accordion .ui-accordion-header .ui-icon {
+    height: 35px;
+    width: 35px;
+    top: 0;
+    margin-top: 5px;
+}
+
+.ui-acc-icon-close {
+    background-image: url("images/pfeil_klein_oben_gelb.png") !important;
+}
+
+.ui-acc-icon-open {
+    background-image: url("images/pfeil_klein_unten_gelb.png") !important;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active,
+.ui-accordion .ui-accordion-header.ui-state-default {
+    margin-top: 0.625em;
+    background: rgba(255, 255, 240, 0.5) none;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    height: 30px;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active:first-child,
+.ui-accordion .ui-accordion-header.ui-state-default:first-child {
+    margin-top: 0;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active a,
+.ui-accordion .ui-accordion-header.ui-state-default a {
+    color: #222222;
+    padding-left: 4em; /* moves title to the right due to the icon. */
+    vertical-align: middle;
+    line-height: 30px;
+    height: 20px;
+}
+
+.ui-accordion .ui-accordion-header.ui-state-active a:hover,
+.ui-accordion .ui-accordion-header.ui-state-default a:hover {
+    color: #660000;
+}
+
+.ui-accordion .ui-accordion-content {
+    background: rgba(255,255,240, 0.5) none;
+    border: none;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    margin-top: -1px;
+    padding: 1em 2em 1em 50px;
+    color: #660000;
+}
+
+/* ==================================================================================
+ *   Quicktabs styling
+ * ================================================================================== */
+ul.quicktabs-tabs {
+    margin: 0;
+    width: 100%;
+}
+
+ul.quicktabs-tabs > li {
+    display: inline-block;
+    background-color: rgba(51,153,204,0.6);
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    vertical-align: bottom;
+    border-right: 1px solid #ff9933;
+}
+
+ul.quicktabs-tabs > li:last-child {
+    border: none;
+}
+
+ul.quicktabs-tabs > li.active {
+    background-color: rgba(51,153,204,0.8);
+    height: 45px;
+    border: none;
+    margin: 0 -1px;
+}
+
+ul.quicktabs-tabs > li:first-child.active {
+    margin: 0;
+}
+
+ul.quicktabs-tabs > li a {
+    padding: 0 1.7em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+}
+ul.quicktabs-tabs > li a:hover {
+    color: #ff9933;
+}
+ul.quicktabs-tabs > li.active a {
+    padding: 0 1.7em;
+    color: #eeeeee;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 45px;
+}
+
+/*
+ *  Lists in quick tabs
+ */
+.quicktabs-tabpage {
+    overflow: hidden;  /* Prevents margin collapsing */
+    background-color: rgba(51,153,204,0.8);
+}
+
+.quicktabs-tabpage .view .view-content .views-row {
+    /* Inside tabs black font and side margin for lists */
+    color: #222222;
+    margin: 1.25em 0.625em;
+}
+
+
+/* ==================================================================================
+ *   Flexslider styling
+ * ================================================================================== */
+.flex-nav-container {
+    float: right;
+    margin: 1.25em 0;
+    position: relative;
+    width: 100%;
+}
+.flexslider {
+    position: relative;
+    background: none;
+    border: none;
+    /* Trick: The image is visible in the padding area and gives the element a height (overflow=hidden cuts outside border) */
+    overflow: hidden;
+    width: 100% !important;
+    height: 0;
+    padding-bottom: 38.2%;  /* Golden ratio */
+}
+.flexslider ul.slides li img {
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+
+}
+
+/* navigation at the bottom */
+.flex-control-nav {
+    position: absolute;
+    bottom: -26px;
+    outline: none;
+    text-align: center;
+    width: 100%;
+}
+.flex-control-nav li a {
+    cursor: pointer;
+    display: block;
+    width: 13px; /* image size */
+    height: 13px;
+    text-indent: -999em;
+    background: url("images/bg_control_nav.png") no-repeat scroll 0 0;
+}
+.flex-control-nav li a.active {
+    /* get last image */
+    background-position: 0 -26px;
+    cursor: default;
+}
+.flex-control-nav li a:hover {
+    /* get middle image */
+    background-position: 0 -13px;
+    cursor: default;
+}
+
+/* direction controls left and right centered */
+.flex-direction-nav li {
+    position: absolute;
+    top: 0;
+    bottom:0;
+    left: 0;
+    width: 45%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s;
+    -webkit-transition: opacity 0.5s; /* Safari */
+}
+.flex-direction-nav li.last {
+    left: auto;
+    right: 0;
+}
+.flex-direction-nav li:hover {
+    opacity: 0.8;
+}
+
+.flex-direction-nav li a {
+    display: block;
+    position: absolute;
+    top: 48%;
+    width: 35px;
+    height: 35px;
+    margin: -1em 0 0;
+    outline: none;
+    text-indent: -999em;
+    background: url("images/bg_direction_nav.png") no-repeat scroll 0 0;
+}
+.flex-direction-nav li a.prev {
+    left: -5px;
+}
+.flex-direction-nav li a.next {
+    /* get second half of image */
+    background-position: -35px 0;
+    right: -5px;
+}
+
+
+
+/* =============================================================================
+ *
+ *
+ *      Site specific element styling starts here...
+ *
+ *
+ * ========================================================================== */
+
+/* ==================================================================================
+ *   Front Page styling
+ * ================================================================================== */
+/* Front page fields */
+.front-title {
+    text-align: left;
+    padding: 0.25em 0.625em;
+}
+.front-title .block-inner,
+.front-title h2 {
+    margin: 0;
+    font-weight: normal;
+    color: #222222;
+}
+#node-75.node-teaser-front .field-name-body h3 {
+    margin: 0;
+    font-size: 1.6em;
+    font-weight: normal;
+    color: #222222;
+}
+
+.group-image-with-price {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    padding-bottom: 75%;
+}
+.field-apartment-price-front {
+    position: absolute;
+    width: 45%;
+    left: 50%;
+    top: 32%;
+    z-index: 10;
+    padding: 0.3125em;
+    background-color: rgba(51,51,51,0.9);
+    color: #eeeeee;
+    text-align: center;
+    -moz-border-radius: 4px; /* Firefox */
+    -webkit-border-radius: 4px; /* Safari and Chrome */
+    border-radius: 4px; /* Opera 10.5+, future browsers, and now also Internet Explorer 6+ using IE-CSS3 */
+}
+.field-apartment-price-front .field-label {
+    color: #EEEEEE;
+}
+
+#block-responsive-widgets-test-widget .block-title,
+.front-events .block-title,
+.front-news .block-title {
+    text-align: left;
+    padding: 0.25em 0.625em;
+    color: #222222;
+    font-weight: normal;
+}
+
+.apartment-section .field-details-button {
+    float: right;
+    bottom: 0;
+    margin: -1.25em 0 0.625em;
+}
+
+
+/* Front page background */
+.front #main-content #content,
+.front #main-content .sub-main-content {
+    margin: 0 0 1.25em 0;
+}
+
+/* Front page AT panel regions */
+.at-panel > .region > .region-inner > .apartment-section,
+.at-panel > .region > .region-inner > .front-events .block-content,
+.at-panel > .region > .region-inner > .front-news .block-content {
+    position: relative;
+    margin: 0 0.625em 0.625em;
+    background-color: rgba(255,255,240,0.5);
+}
+
+/* Transparent background for lists on front page and footer  */
+.front .view-news-list .view-content .views-row,
+.front .view-event-list .view-content .views-row,
+#footer .view-user-list .view-content .views-row,
+#footer .view-landmark-list .view-content .views-row {
+    background-color: transparent;
+}
+
+.front .view-news-list .view-content .views-row-first,
+.front .view-event-list .view-content .views-row-first {
+    margin: 0;
+}
+
+/* ==================================================================================
+ *   Responsive widget illustration styling
+ * ================================================================================== */
+#pe-cell-container {
+    margin: 1.25em 0 0;
+    width: auto;
+}
+#pe-cell-container li.first .cover-image {
+    background: url("images/cover.jpg") no-repeat top left;
+    background-size: 100% 100%;
+    /* background-position used for browsers not supporting background-size */
+    /*background-position: 50% 50%;*/
+    /* add border, compensate border thickness
+    top: -10px;
+    left: -10px;
+    border: 10px solid #fff;
+    box-shadow: 2px 4px 5px 5px rgba(0,0,0,0.2);*/
+    z-index: 0;
+    opacity: 1.0;
+}
+/* override specific cells with a new background image */
+#pe-cell-container .cell-0-0 { background-image: url("images/cells/cell0x0.png"); }
+#pe-cell-container .cell-1-0 { background-image: url("images/cells/cell1x0.png"); }
+#pe-cell-container .cell-2-0 { background-image: url("images/cells/cell2x0.png"); }
+#pe-cell-container .cell-3-0 { background-image: url("images/cells/cell3x0.png"); }
+#pe-cell-container .cell-4-0 { background-image: url("images/cells/cell4x0.png"); }
+#pe-cell-container .cell-5-0 { background-image: url("images/cells/cell5x0.png"); }
+#pe-cell-container .cell-6-0 { background-image: url("images/cells/cell6x0.png"); }
+#pe-cell-container .cell-7-0 { background-image: url("images/cells/cell7x0.png"); }
+#pe-cell-container .cell-8-0 { background-image: url("images/cells/cell8x0.png"); }
+#pe-cell-container .cell-9-0 { background-image: url("images/cells/cell9x0.png"); }
+
+#pe-cell-container .cell-0-1 { background-image: url("images/cells/cell0x1.png"); }
+#pe-cell-container .cell-1-1 { background-image: url("images/cells/cell1x1.png"); }
+#pe-cell-container .cell-2-1 { background-image: url("images/cells/cell2x1.png"); }
+#pe-cell-container .cell-3-1 { background-image: url("images/cells/cell3x1.png"); }
+#pe-cell-container .cell-4-1 { background-image: url("images/cells/cell4x1.png"); }
+#pe-cell-container .cell-5-1 { background-image: url("images/cells/cell5x1.png"); }
+#pe-cell-container .cell-6-1 { background-image: url("images/cells/cell6x1.png"); }
+#pe-cell-container .cell-7-1 { background-image: url("images/cells/cell7x1.png"); }
+#pe-cell-container .cell-8-1 { background-image: url("images/cells/cell8x1.png"); }
+#pe-cell-container .cell-9-1 { background-image: url("images/cells/cell9x1.png"); }
+
+#pe-cell-container .cell-0-2 { background-image: url("images/cells/cell0x2.png"); }
+#pe-cell-container .cell-1-2 { background-image: url("images/cells/cell1x2.png"); }
+#pe-cell-container .cell-2-2 { background-image: url("images/cells/cell2x2.png"); }
+#pe-cell-container .cell-3-2 { background-image: url("images/cells/cell3x2.png"); }
+#pe-cell-container .cell-4-2 { background-image: url("images/cells/cell4x2.png"); }
+#pe-cell-container .cell-5-2 { background-image: url("images/cells/cell5x2.png"); }
+#pe-cell-container .cell-6-2 { background-image: url("images/cells/cell6x2.png"); }
+#pe-cell-container .cell-7-2 { background-image: url("images/cells/cell7x2.png"); }
+#pe-cell-container .cell-8-2 { background-image: url("images/cells/cell8x2.png"); }
+#pe-cell-container .cell-9-2 { background-image: url("images/cells/cell9x2.png"); }
+
+#pe-cell-container .cell-0-3 { background-image: url("images/cells/cell0x3.png"); }
+#pe-cell-container .cell-1-3 { background-image: url("images/cells/cell1x3.png"); }
+#pe-cell-container .cell-2-3 { background-image: url("images/cells/cell2x3.png"); }
+#pe-cell-container .cell-3-3 { background-image: url("images/cells/cell3x3.png"); }
+#pe-cell-container .cell-4-3 { background-image: url("images/cells/cell4x3.png"); }
+#pe-cell-container .cell-5-3 { background-image: url("images/cells/cell5x3.png"); }
+#pe-cell-container .cell-6-3 { background-image: url("images/cells/cell6x3.png"); }
+#pe-cell-container .cell-7-3 { background-image: url("images/cells/cell7x3.png"); }
+#pe-cell-container .cell-8-3 { background-image: url("images/cells/cell8x3.png"); }
+#pe-cell-container .cell-9-3 { background-image: url("images/cells/cell9x3.png"); }
+
+#pe-cell-container .cell-0-4 { background-image: url("images/cells/cell0x4.png"); }
+#pe-cell-container .cell-1-4 { background-image: url("images/cells/cell1x4.png"); }
+#pe-cell-container .cell-2-4 { background-image: url("images/cells/cell2x4.png"); }
+#pe-cell-container .cell-3-4 { background-image: url("images/cells/cell3x4.png"); }
+#pe-cell-container .cell-4-4 { background-image: url("images/cells/cell4x4.png"); }
+#pe-cell-container .cell-5-4 { background-image: url("images/cells/cell5x4.png"); }
+#pe-cell-container .cell-6-4 { background-image: url("images/cells/cell6x4.png"); }
+#pe-cell-container .cell-7-4 { background-image: url("images/cells/cell7x4.png"); }
+#pe-cell-container .cell-8-4 { background-image: url("images/cells/cell8x4.png"); }
+#pe-cell-container .cell-9-4 { background-image: url("images/cells/cell9x4.png"); }
+
+#pe-cell-container .cell-0-5 { background-image: url("images/cells/cell0x5.png"); }
+#pe-cell-container .cell-1-5 { background-image: url("images/cells/cell1x5.png"); }
+#pe-cell-container .cell-2-5 { background-image: url("images/cells/cell2x5.png"); }
+#pe-cell-container .cell-3-5 { background-image: url("images/cells/cell3x5.png"); }
+#pe-cell-container .cell-4-5 { background-image: url("images/cells/cell4x5.png"); }
+#pe-cell-container .cell-5-5 { background-image: url("images/cells/cell5x5.png"); }
+#pe-cell-container .cell-6-5 { background-image: url("images/cells/cell6x5.png"); }
+#pe-cell-container .cell-7-5 { background-image: url("images/cells/cell7x5.png"); }
+#pe-cell-container .cell-8-5 { background-image: url("images/cells/cell8x5.png"); }
+#pe-cell-container .cell-9-5 { background-image: url("images/cells/cell9x5.png"); }
+
+#pe-cell-container .cell-0-6 { background-image: url("images/cells/cell0x6.png"); }
+#pe-cell-container .cell-1-6 { background-image: url("images/cells/cell1x6.png"); }
+#pe-cell-container .cell-2-6 { background-image: url("images/cells/cell2x6.png"); }
+#pe-cell-container .cell-3-6 { background-image: url("images/cells/cell3x6.png"); }
+#pe-cell-container .cell-4-6 { background-image: url("images/cells/cell4x6.png"); }
+#pe-cell-container .cell-5-6 { background-image: url("images/cells/cell5x6.png"); }
+#pe-cell-container .cell-6-6 { background-image: url("images/cells/cell6x6.png"); }
+#pe-cell-container .cell-7-6 { background-image: url("images/cells/cell7x6.png"); }
+#pe-cell-container .cell-8-6 { background-image: url("images/cells/cell8x6.png"); }
+#pe-cell-container .cell-9-6 { background-image: url("images/cells/cell9x6.png"); }
+
+
+/* ==================================================================================
+ *   List views page styling
+ * ================================================================================== */
+.view .view-header {
+    /* Header text in list views */
+    padding: 0.625em;
+}
+
+.view .view-content .views-row  .field-title-left,
+.view .view-content .views-row  .field-apartment-price-teaser {
+    border-bottom: 1px solid #660000;
+    color: #222222;
+}
+
+.view .view-content .views-row {
+    margin: 1.25em 0;
+    background-color: rgba(255,255,240,0.5);
+    color: #660000;
+}
+
+
+.view .view-content .views-row p:last-child {
+    /* last paragraph without bottom margin */
+    margin-bottom: 0;
+}
+
+.view .at-panel > .region > .region-inner {
+    padding: 0.625em;
+}
+
+
+
+/* ==================================================================================
+ *   Generic styling
+ * ================================================================================== */
+/*
+ *  Valid for all nodes in full mode:
+ *
+ *  - region padding
+ *  - comments region at the bottom
+ *  - title underline
+ *  - nested AT panels
+ */
+.node.view-mode-full > .at-panel > .region > .region-inner,
+.user-profile > .at-panel > .region > .region-inner {
+    background-color: rgba(255,255,240,0.5);
+    color: #660000;
+    margin: 0.625em;
+    padding: 0.625em;
+}
+.node.view-mode-full > .at-panel > div[class*='-bottom'] {
+    /* prevents margin collapsing for top of comment section*/
+    border-top: 1px solid transparent;
+}
+.node.view-mode-full .field-title-page {
+    border-bottom: 1px solid #660000;
+}
+
+.at-panel .at-panel > .region > .region-inner {
+    padding: 0.625em;
+}
+
+
+/* ==================================================================================
+ *   Apartment full page styling (title-66-33-comments)
+ * ================================================================================== */
+.node-unit-description.view-mode-full > .at-panel > .region > .region-inner {
+    background: none;
+    margin:0;
+}
+
+.node-unit-description.view-mode-full .field-name-body h2,
+.node-unit-description.view-mode-full .field-name-field-unit-description-amenities h2,
+.node-unit-description.view-mode-full .field-name-field-unit-description-policies h2,
+.node-unit-description.view-mode-full .field-name-field-unit-desc-terms h2,
+.node-unit-description.view-mode-full .field-name-body h3,
+.node-unit-description.view-mode-full .field-name-field-unit-description-amenities h3,
+.node-unit-description.view-mode-full .field-name-field-unit-description-policies h3,
+.node-unit-description.view-mode-full .field-name-field-unit-desc-terms h3,
+.node-unit-description.view-mode-full .field-name-body h4,
+.node-unit-description.view-mode-full .field-name-field-unit-description-amenities h4,
+.node-unit-description.view-mode-full .field-name-field-unit-description-policies h4,
+.node-unit-description.view-mode-full .field-name-field-unit-desc-terms h4 {
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+/* Sidebar blocks in apartment description */
+.node-unit-description.view-mode-full .field-name-field-price,
+.field-name-apart-availability-block,
+.field-name-field-unit-block-contact,
+.field-name-field-unit-week-text {
+    overflow: hidden; /* Prevents margin collapsing */
+    background-color: rgba(255,255,240, 0.5);
+    margin-bottom: 0.625em;
+    padding: 0.625em;
+}
+.node-unit-description.view-mode-full .field-name-field-price {
+    margin: 0;
+}
+.node-unit-description.view-mode-full #comments {
+    background-color: rgba(255,255,240, 0.5);
+}
+.node-unit-description.view-mode-full #comments h2 {
+    padding-top: 0.625em;
+}
+
+.node-unit-description.view-mode-full .block-title,
+.node-unit-description.view-mode-full .field-name-field-price .field-label {
+    font-size: 1.6em;
+    font-weight: normal;
+    color: #222222;
+    border-bottom: 1px solid #660000;
+}
+
+.node-unit-description.view-mode-full .field-name-field-price .field-label {
+    font-size: 1.3em;
+}
+/* contact block */
+.node-unit-description .view-user-list .view-content .views-row {
+    background-color: transparent;
+    margin: 0;
+}
+
+.node-unit-description .view-user-list .at-panel > .region > .region-inner {
+    padding: 0.625em 0;
+    color: #222222;
+}
+
+
+/* ==================================================================================
+ *   Basic page styling (one region, no comments)
+ * ================================================================================== */
+.node-page.view-mode-full > .at-panel > .region > .region-inner {
+    margin: 0 0 2em;
+}
+
+.quicktabs-tabpage .node-page.view-mode-full {
+    background-color: rgba(255,255,240, 0.5);
+    color: #222222;
+    margin: 0.625em;
+}
+.quicktabs-tabpage .node-page.view-mode-full .at-panel > .region > .region-inner {
+    /* philosophy page in tab */
+    background: none;
+}
+.quicktabs-tabpage .node-page.view-mode-full .field-name-body {
+    color: #222222;
+}
+.quicktabs-tabpage .node-page.view-mode-full .field-title-page,
+.quicktabs-tabpage .node-page.view-mode-full .field-label {
+    color: #222222;
+    border-bottom: 1px solid #660000;
+}
+
+
+/* ==================================================================================
+ *   Event page styling (none-66-33-comments)
+ * ================================================================================== */
+.node-event.view-mode-full .field-title-page,
+.node-event.view-mode-full .field-label {
+    color: #222222;
+}
+
+.node-event.view-mode-teaser .field-event-date-box h2,
+.node-event.view-mode-teaser .field-location h2 {
+    border-bottom: 1px solid #660000;
+}
+.node-event.view-mode-full .field-name-field-event-images .field-item {
+    margin-bottom: 0.625em;
+}
+.node-event.view-mode-full .field-name-field-event-images .field-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Feed icon replacement in event list */
+.page-event-list #main-content,
+.page-node-79 #main-content {
+    position: relative;
+}
+.page-event-list a.feed-icon {
+    position: absolute;
+    top: 0.4em;
+    right: 0.125em
+}
+.page-node-79 a.feed-icon {
+    position: absolute;
+    top: 1em;
+    right: 1em
+}
+.page-node-79.logged-in a.feed-icon {
+    top: 3em;
+}
+.page-event-list a.feed-icon img,
+.page-node-79 a.feed-icon img {
+    display: none;
+}
+.page-event-list a.feed-icon:before,
+.page-node-79 a.feed-icon:before {
+    content: '\f143';
+    font-family: "fontawesome";
+    font-size: 2em;
+    color: #660000;
+    text-align: center;
+    padding: 0.3em;
+}
+
+/* ==================================================================================
+ *   News page styling (none-33-66-comment)
+ * ================================================================================== */
+.node-blog.view-mode-full .field-title-page,
+.node-blog.view-mode-full .field-label {
+    color: #222222;
+}
+
+
+/* ==================================================================================
+ *   Landmark page styling (none-66-33-comment)
+ * ================================================================================== */
+.node-landmark.view-mode-full {
+    overflow: hidden;
+}
+
+.node-landmark.view-mode-full .field-title-page,
+.node-landmark.view-mode-full .field-label {
+    color: #222222;
+}
+.node-landmark.view-mode-full .field-name-field-image .field-item {
+    margin-bottom: 0.625em;
+}
+
+
+
+/* ==================================================================================
+ *   Locality page styling (none-66-33-none)
+ * ================================================================================== */
+.node-locality.view-mode-full {
+    overflow: hidden;
+}
+
+.node-locality.view-mode-full .field-title-page,
+.node-locality.view-mode-full .field-label {
+    color: #222222;
+}
+
+.node-locality.view-mode-full .field-name-field-locality-images .field-item {
+    margin-bottom: 0.625em;
+}
+.node-locality.view-mode-full .field-name-field-locality-images .field-item:last-child {
+    margin-bottom: 0;
+}
+
+/* ==================================================================================
+ *   Host profile and philosophy styling (none-50-50-history)
+ * ================================================================================== */
+.view-user-list .field-label {
+    width: 6em;    /* align address fields */
+}
+.view-user-list .field-name-name h2 {
+    /* user name */
+    padding: 0 0.4em;
+    margin: 0;
+}
+.view-user-list .field-name-field-address {
+    padding: 0.625em 0;
+}
+.view-user-list .extended-profile dl {
+    margin: 0;
+}
+.view-user-list .extended-profile .field-name-field-image {
+    padding: 0.625em 0;
+}
+.view-user-list .extended-profile .field-name-field-biography {
+    margin-top: 1em;
+}
+
+.view-user-list .extended-profile h3,
+.view-user-list .management-profile h3 {
+    display: none;
+}
+
+.quicktabs-tabpage .view-user-list .views-row,
+.page-founders #main-content .view-user-list .views-row {
+    display: inline-block;
+    width: 47%;
+    float: left;
+    margin: 0.625em;
+}
+
+.quicktabs-tabpage .view-user-list .views-row .extended-profile .field-name-field-address,
+.page-founders #main-content .view-user-list .views-row .extended-profile .field-name-field-address {
+    display: none;
+}
+
+
+/* ==================================================================================
+ *   Commerce styling
+ * ================================================================================== */
+
+/*
+ *  Booking cart
+ */
+body.page-booking #main-content #rooms-booking-availability-search-form {
+    padding-top: 1em;
+}
+body.page-booking #main-content div.region {
+    margin: 0.625em 0.5em;
+    background-color: rgba(255,255,240,0.5);
+}
+body.page-booking #main-content div.rooms-unit-superior-apartment {
+    border-top: 1px solid #660000;
+}
+body.page-booking #main-content #rooms-booking-manager-availability-result-block,
+body.page-booking #main-content div.no-booking-data {
+    padding: 1em 0.5em;
+}
+
+
+/*
+ *  Checkout progress
+ */
+#block-commerce-checkout-progress-indication {
+    margin-bottom: 20px;
+}
+.item-list ol.commerce-checkout-progress {
+    display: block;
+    overflow: hidden;
+    padding: 0 0.625em;
+}
+.item-list ol.commerce-checkout-progress > li {
+    display: block;
+    position: relative;
+    float: left;
+    margin: 0;
+    padding: 0.625em 1.3em;
+    width: auto;
+    text-align: center;
+    color: #222;
+    background-color: rgba(51,153,204,0.8);
+    border: 1px solid #ff9933;
+    border-left: none;
+}
+.item-list ol.commerce-checkout-progress > li:first-child {
+    border-left: 1px solid #ff9933;
+}
+.item-list ol.commerce-checkout-progress > li.first,
+.item-list ol.commerce-checkout-progress > li.first a {
+    border-radius: 6px 0 0 6px;
+}
+.item-list ol.commerce-checkout-progress > li.last,
+.item-list ol.commerce-checkout-progress > li.last a {
+    border-radius: 0 6px 6px 0;
+    margin: 0;
+}
+.item-list ol.commerce-checkout-progress > li.last:after {
+    display: none;
+}
+.item-list ol.commerce-checkout-progress > li.active {
+    font-weight: normal;
+    background: #ff9933;
+}
+.item-list ol.commerce-checkout-progress > li.active + li:after {
+    /* create triangle */
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: -1px;
+    border: 10px solid #ff9933;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent #ff9933;
+}
+.item-list ol.commerce-checkout-progress > li.visited a {
+    display: block;
+    text-decoration: none;
+    color: #222;
+}
+.item-list ol.commerce-checkout-progress > li.visited a:hover {
+    color: #ff9933;
+}
+
+
+
+
+/* =============================================================================
+ *   Fields (classes defined and set in Display Suite)
+ * ========================================================================== */
+
+/*
+ * Labels are h2 in Adaptivetheme. Use a strong selector to mitigate unwanted ineritance issues
+ */
+.field-label {
+    font-size: 1em;
+    font-weight: 400;
+    font-family: inherit;
+    line-height: inherit;
+    color: #222222;
+    margin: 0;
+}
+
+.field-name-submitted-by {
+    color: #888888;
+    padding-bottom: 0.625em;
+}
+
+/*
+ *   Price over image in apartment section
+ */
+.field-apartment-price-teaser {
+    font-size: 1.3em;
+    color: #222222;
+    text-align: left;
+}
+.field-apartment-price-teaser.view-mode-teaser {
+    margin-top: 10px;
+}
+.field-side-image img {
+    width: 100%;
+    padding: 0;
+}
+
+.field-title-page {
+    text-align: left;
+    margin-bottom: 0.625em;
+    color:#222222;
+}
+
+.field-title-page h1 {
+    font-weight: normal;
+	margin: 0 0 0.625em 0;
+	color:#222222;
+}
+
+.field-title-center {
+    text-align: center;
+    margin-bottom: 0.625em;
+}
+
+.field-title-left {
+    text-align: left;
+    margin: 0.625em 0;
+}
+
+.field-title-left h2,
+.field-title-center h2 {
+    font-size: 1.3em;
+    font-weight: 500;
+    margin: 0;
+}
+.field-title-left h2 a,
+.field-title-left h2 a:link,
+.field-title-left h2 a:visited,
+.field-title-left h2 a:active,
+.field-title-left h2 a.active {
+    text-decoration: none;
+    color: #222222;
+}
+
+.field-title-left h2 a:hover,
+.field-title-left h2 a:focus {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+
+.field-short-desc-center {
+    text-align: center;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-bottom: 0.625em;
+}
+
+.field-short-desc-left {
+    text-align: left;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding-bottom: 0.625em;
+}
+
+.field-date-time,
+.field-location {
+    padding-bottom: 0.625em;
+}
+
+.field-event-date-time {
+    font-size: 80%;
+    padding-bottom: 0.625em;
+}
+
+.field-event-date-box {
+    display: block;
+    padding: 1.1em 0;
+    margin-bottom: 0.625em;
+}
+
+.field-organizer-artist {
+    padding-bottom: 0.625em;
+}
+
+.field-read-more-button a {
+    float: right;
+    color: #eeeeee;
+    font-style: italic;
+}
+
+.field-read-more-button a:hover {
+    color: #ffffff;
+}
+
+.field-details-button {
+    float: right;
+    bottom: 0;
+    margin: 1.25em 0 0;
+}
+
+.field-details-button a {
+    display: block;
+    width: 120px;
+    height: 120px;
+    background-image: url("images/pfeil_gross_gelb.png");
+    text-align: center;
+    line-height: 115px;
+    vertical-align: middle;
+    color: #222222;
+    opacity: 0.8;
+}
+
+.field-details-button a:hover {
+    color: #eeeeee;
+}
+
+.google_map_field_display {
+    width: 100%;
+
+}
+
+
+/* =============================================================================
+ *
+ *
+ *      Administrator mode specific element styling starts here...
+ *
+ *
+ * ========================================================================== */
+
+/*
+ * Admin menu overrides
+ */
+#admin-menu {
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Devel Module
+ */
+.dev-query {
+    background: #eee;
+    padding: 30px;
+}
+
+/*
+ * Styleguide module tweaks
+ */
+#styleguide-header {
+    padding: 0 0.625em;
+}
+
+#styleguide-header .item-list {
+    font-family: inherit;
+    margin: 0 1.25em 1.25em 0;
+    min-height: 260px;
+    width: auto;
+}
+
+#tasks {
+    margin-bottom: 0;
+}
+
+
+/* =============================================================================
+ *   Tabs (local tasks)
+ * ========================================================================== */
+ul.primary {
+    border: none;
+    margin: 0.625em 0;
+    padding: 0 0.625em 0;
+}
+
+ul.primary > li {
+    display: inline-block;
+    float: right;
+    margin:0;
+    padding: 0;
+    vertical-align: bottom;
+    background-color: rgba(51,153,204,0.6);
+    border-right: 1px solid #ff9933;
+}
+
+ul.primary > li > a {
+    display: block;
+    height: 1.5em;
+    line-height: 1.5em;
+    padding: 0.125em 0.625em;
+    text-align: center;
+    vertical-align: bottom;
+    background: none;
+    border: none;
+}
+ul.primary li a:hover,
+ul.primary li a:focus {
+    color: #ff9933;
+    background: none;
+    border: none;
+}
+
+ul.primary > li.active {
+    background: rgba(51, 153, 204, 0.8) none;
+    border: none;
+}
+ul.primary > li.active a {
+    color: #eeeeee;
+    background: none;
+    border: none;
+}
+
+ul.secondary {
+    border-bottom: 1px solid #ccc;
+    margin: 1em 0 0;
+    padding: 0 .3em 1em;
+}
+
+ul.secondary li {
+    border-right: 0;
+    list-style: none;
+    padding: 0 0.625em 0 0;
+}
+
+ul.secondary li a {}
+
+ul.secondary li a:hover,
+ul.secondary li a.active {
+    border-bottom: none;
+    text-decoration: underline;
+}
