@@ -1,0 +1,13 @@
+diff --git a/ds.module b/ds.module
+index 2322a7b..b70ccff 100644
+--- a/ds.module
++++ b/ds.module
+@@ -843,7 +843,7 @@ function ds_render_ctools_field($field) {
+                   // This term is missing in the database.
+                   continue;
+                 }
+-                $terms_loaded[$item['tid']];
++                $terms_loaded[$item['tid']] = $term;
+               }
+               $field['entity']->{$key}[$language][$tkey]['taxonomy_term'] = $terms_loaded[$item['tid']];
+             }
