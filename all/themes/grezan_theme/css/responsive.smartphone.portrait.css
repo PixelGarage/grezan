@@ -14,10 +14,6 @@ body {
     font-size: 75%;
 }
 
-.region-header {
-    display: none;
-}
-
 #name-and-slogan {
     vertical-align: -50px;
 }

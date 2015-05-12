@@ -57,7 +57,10 @@
  *  hide booking button in header
  */
 @media only screen and (max-width: 820px) {
-    .region-header {
+    .region-header .block-locale {
+        right: 0;
+    }
+    .region-header  .header-booking-block {
         display: none;
     }
 

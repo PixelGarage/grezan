@@ -51,55 +51,16 @@ function grezan_theme_preprocess_html(&$vars) {
 // */
 
 
-/**
- * Process variables for the html template.
- */
-/* -- Delete this line if you want to use this function
-function grezan_theme_process_html(&$vars) {
-}
-// */
+/* =============================================================================
+ *      Language block theme
+ * ========================================================================== */
 
-
-/**
- * Override or insert variables for the page templates.
- */
-/* -- Delete this line if you want to use these functions
-function grezan_theme_preprocess_page(&$vars) {
+function grezan_theme_links__locale_block(&$vars) {
+  foreach($vars['links'] as $language => $langInfo) {
+    $abbr = $langInfo['language']->language;
+    $vars['links'][$language]['title'] = $abbr;
+  }
+  $content = theme_links($vars);
+  return $content;
 }
-function grezan_theme_process_page(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the node templates.
- */
-/* -- Delete this line if you want to use these functions
-function grezan_theme_preprocess_node(&$vars) {
-}
-function grezan_theme_process_node(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the comment templates.
- */
-/* -- Delete this line if you want to use these functions
-function grezan_theme_preprocess_comment(&$vars) {
-}
-function grezan_theme_process_comment(&$vars) {
-}
-// */
-
-
-/**
- * Override or insert variables into the block templates.
- */
-/* -- Delete this line if you want to use these functions
-function grezan_theme_preprocess_block(&$vars) {
-}
-function grezan_theme_process_block(&$vars) {
-}
-// */
 
