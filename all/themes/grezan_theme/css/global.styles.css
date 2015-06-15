@@ -1931,7 +1931,10 @@ body.page-booking #main-content div.no-booking-data {
     color: #ff9933;
 }
 
-
+/* Terms of service */
+fieldset.terms-of-service .node-page .field-name-body a {
+    color: rgba(51,153,204,1.0);
+}
 
 
 /* =============================================================================
