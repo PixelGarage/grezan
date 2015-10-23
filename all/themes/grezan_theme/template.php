@@ -59,6 +59,10 @@ function grezan_theme_links__locale_block(&$vars) {
   foreach($vars['links'] as $language => $langInfo) {
     $abbr = $langInfo['language']->language;
     $vars['links'][$language]['title'] = $abbr;
+    // don't show 'de' language
+    if ($language == 'de') {
+      unset($vars['links'][$language]);
+    }
   }
   $content = theme_links($vars);
   return $content;
