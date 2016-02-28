@@ -3,7 +3,7 @@ Specific Project Details:
 Changes in Modules (Patches)
 ============================
 1) Rooms/js/rooms_date_popup.js changed -> Calendar (nur Samstag buchbar)
-2) ds patched
+
 
 
 Locked Modules (no update)
