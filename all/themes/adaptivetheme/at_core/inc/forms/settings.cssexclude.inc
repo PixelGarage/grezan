@@ -61,7 +61,7 @@ if ($core_defined === TRUE) {
 }
 if ($core_defined === FALSE) {
   $form['at']['cssexcludes']['die-css-die']['libraries-excludes']['nothing_core_defined'] = array(
-    '#markup' => t('No core stylesheets to unset? Hmmm, something is not right here, try clearning the sites cache, otherwise you might need to <a href="!link" target="_blank">post an issue</a>.', array('!link' => 'http://drupal.org/project/issues/adaptivetheme')),
+    '#markup' => t('No core stylesheets to unset? Hmmm, something is not right here, try clearning the sites cache, otherwise you might need to <a href="!link" target="_blank">post an issue</a>.', array('!link' => 'https://drupal.org/project/issues/adaptivetheme')),
   );
 }
 

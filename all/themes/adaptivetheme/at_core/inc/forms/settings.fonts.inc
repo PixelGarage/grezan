@@ -19,9 +19,9 @@ $google_styles = google_font_styles();
 // Build a message for fonts depending on what is enabled
 $fonts_message = t('<h3>Fonts</h3><p>First select the font type&thinsp;&mdash;&thinsp;websafe, google or custom&thinsp;&mdash;&thinsp;then select or enter the required information depending on the type. Adaptivetheme can also support any font supplied by the <a href="!module_fyf" target="_blank">@font-your-face module</a>, new settings and instructions will appear after you have installed @font-your-face.</p><p>To preview and gather required information for adding Google fonts see: <a href="!gwf" target="_blank">google.com/webfonts</a>. If you are adding extra styles or character sets these must exist for the specified font&thinsp;&mdash;&thinsp;use the <em>Quick-use</em> feature in Google fonts to check this information.</p>',
 array(
-  '!gwf' => 'http://www.google.com/webfonts',
+  '!gwf' => 'https://www.google.com/webfonts',
   '!cfs' => 'http://coding.smashingmagazine.com/2009/09/22/complete-guide-to-css-font-stacks/',
-  '!module_fyf' => 'http://drupal.org/project/fontyourface',
+  '!module_fyf' => 'https://drupal.org/project/fontyourface',
   )
 );
 
@@ -48,7 +48,7 @@ if (module_exists('fontyourface')) {
   $settings_fyf = l(t('"add selector in theme CSS"'), 'admin/appearance/fontyourface', array('attributes' => array('target' => array('_blank'))));
   $fonts_message = t('<h3>Fonts</h3><p>First select the font type&thinsp;&mdash;&thinsp;websafe, google, custom or @font-your-face&thinsp;&mdash;&thinsp;then select or enter the required information depending on the type. To use @font-your-face you must first enable fonts in the !browse_fyf, then set those fonts to !settings_fyf. When you have done this the @font-your-face fonts will be availble here for you to apply to your content and titles. @font-your-face integration has only been tested with Google and Font Squirrel.</p><p>To preview and gather required information for adding Google fonts see: <a href="!gwf" target="_blank">google.com/webfonts</a>. If you are adding extra styles or character sets these must exist for the specified font&thinsp;&mdash;&thinsp;use the <em>Quick-use</em> feature in Google fonts to check this information.</p>',
   array(
-    '!gwf' => 'http://www.google.com/webfonts',
+    '!gwf' => 'https://www.google.com/webfonts',
     '!cfs' => 'http://coding.smashingmagazine.com/2009/09/22/complete-guide-to-css-font-stacks/',
     '!browse_fyf' => $browse_fyf,
     '!settings_fyf' => $settings_fyf,

@@ -34,7 +34,7 @@ $form['at-settings']['extend']['enable']['enable_font_settings'] = array(
   '#type' => 'checkbox',
   '#title' => t('Fonts'),
   '#default_value' => at_get_setting('enable_font_settings'),
-  '#description' => t('Apply fonts to site elements (page, titles, headings, menus and custom selectors). Supports websafe, custom and Google fonts, and <a href="!link" target="_blank">@font-your-face</a> integration.', array('!link' => 'http://drupal.org/project/fontyourface')),
+  '#description' => t('Apply fonts to site elements (page, titles, headings, menus and custom selectors). Supports websafe, custom and Google fonts, and <a href="!link" target="_blank">@font-your-face</a> integration.', array('!link' => 'https://drupal.org/project/fontyourface')),
 );
 
 // Title styles
@@ -81,7 +81,7 @@ $form['at-settings']['extend']['enable']['enable_custom_css'] = array(
 $form['at-settings']['extend']['enable']['enable_context_regions'] = array(
   '#type' => 'checkbox',
   '#title' => t('Mobile Regions and Blocks'),
-  '#description' => t('Unset regions or move blocks to another region in mobile devices. Requires the <a href="!browscap_module" target="_blank">Browscap module</a> for mobile device detection.', array('!browscap_module' => 'http://drupal.org/project/browscap')),
+  '#description' => t('Unset regions or move blocks to another region in mobile devices. Requires the <a href="!browscap_module" target="_blank">Browscap module</a> for mobile device detection.', array('!browscap_module' => 'https://drupal.org/project/browscap')),
   '#default_value' => at_get_setting('enable_context_regions'),
 );
 

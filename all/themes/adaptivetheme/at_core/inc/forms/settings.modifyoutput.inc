@@ -46,7 +46,7 @@ $form['at']['modify-output']['design']['page_content_type_suggestions'] = array(
 $form['at']['modify-output']['design']['menu_item_span_elements'] = array(
   '#type' => 'checkbox',
   '#title' => t('Wrap menu item text in SPAN tags - useful for certain theme or design related techniques'),
-  '#description' => t('Note: this does not work for <a href="!link" target="_blank">Superfish menus</a>, which includes its own feature for doing this.', array('!link' => 'http://drupal.org/project/superfish')),
+  '#description' => t('Note: this does not work for <a href="!link" target="_blank">Superfish menus</a>, which includes its own feature for doing this.', array('!link' => 'https://drupal.org/project/superfish')),
   '#default_value' => at_get_setting('menu_item_span_elements'),
 );
 
@@ -210,7 +210,7 @@ $form['at']['modify-output']['seo']['rel_author'] = array(
   '#type' => 'checkbox',
   '#title' => t('Add rel=author to user names.'),
   '#default_value' => at_get_setting('rel_author'),
-  '#description' => t('Add rel author to user names to support Googles <a href="!authorhship" target="_blank">Authorship</a> feature.', array('!authorhship' => 'http://support.google.com/webmasters/bin/answer.py?hl=en&answer=1408986')),
+  '#description' => t('Add rel author to user names to support Googles <a href="!authorhship" target="_blank">Authorship</a> feature.', array('!authorhship' => 'https://support.google.com/webmasters/bin/answer.py?hl=en&answer=1408986')),
 );
 
 // Extra CSS Classes
