@@ -326,6 +326,11 @@ svg:not(:root) {
 figure {
   margin: 0;
 }
+.field-type-image figure {
+    max-width:100%;
+    width: 100%;
+}
+
 
 /* =============================================================================
     Forms
@@ -522,6 +527,8 @@ embed,
 object,
 video {
   max-width: 100%;
+  width: 100%;
+    height: auto;
 }
 
 /* Disable flexiblity for IE8 and below */

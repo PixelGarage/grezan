@@ -222,6 +222,14 @@
   <!-- region: Footer -->
   <?php if ($page['footer']): ?>
     <footer<?php print $footer_attributes; ?>>
+      <!-- Add2Any follow buttons -->
+      <div class="block add2any">
+        <div class="a2a_kit a2a_kit_size_32 a2a_default_style a2a_follow">
+          <a class="a2a_button_facebook" data-a2a-follow="centreculture"></a>
+          <a class="a2a_button_instagram" data-a2a-follow="chateauculture"></a>
+        </div>
+        <script async src="//static.addtoany.com/menu/page.js"></script>
+      </div>
       <?php print render($page['footer']); ?>
     </footer>
   <?php endif; ?>

@@ -163,6 +163,9 @@ var {
     background-color: rgba(255,204,102,0.45);
     margin: 0;
 }
+#footer {
+    position:relative;
+}
 
 #footer .region-footer {
     background-color: rgba(75,141,171,1.0);
@@ -197,6 +200,82 @@ var {
 
 #footer .field-label {
     color: #EEEEEE;
+}
+
+/* =============================================================================
+ *   Follow styling
+ * ========================================================================== */
+.block.add2any {
+    position: absolute;
+    top: 20px;
+    left: 78%;
+    padding: 0;
+    z-index: 10;
+}
+@media only screen and (min-width: 640px) {
+    .block.add2any {
+        top: 12px;
+        left: 36%;
+    }
+}
+.a2a_follow {
+    display: inline-block;
+}
+.a2a_follow.a2a_default_style a {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+.a2a_follow a .a2a_label {
+    display: none;
+}
+.a2a_follow a .a2a_svg {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    width: 32px;
+    height: 32px;
+    font-size: 28px;
+    color: #eeeeee;
+    text-align: center;
+    line-height: 32px;
+    background: none !important;
+}
+.a2a_follow a .a2a_svg:hover {
+    font-family: "fontawesome";
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    white-space: nowrap;
+    -webkit-font-feature-settings: "liga";
+    -moz-font-feature-settings: "liga=1";
+    -moz-font-feature-settings: "liga";
+    -ms-font-feature-settings: "liga" 1;
+    -o-font-feature-settings: "liga";
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    opacity: 0.7;
+}
+.a2a_follow a .a2a_svg:before {
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.a2a_follow a.a2a_button_facebook .a2a_svg:before {
+    content: "\f09a";
+}
+.a2a_follow a.a2a_button_instagram .a2a_svg:before {
+    content: "\f16d";
 }
 
 
